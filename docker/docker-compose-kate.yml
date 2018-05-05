@@ -1,0 +1,16 @@
+version: '2'
+services:
+  bci:
+    image: 141.69.58.19:5000/iki/marvin:kinetic
+    environment:
+      ROS_IP: 192.168.5.158
+      ROS_MASTER_URI: http://192.168.5.31:11311
+      WAIT_FOR_ROSCORE: 0
+    network_mode: host
+    volumes:
+      - /home/iki/catkin_ws/src/prj-iki-robotics/ros-smach:/root/catkin_ws/src/prj-iki-robotics/ros-smach
+      - /home/iki/catkin_ws/src/ros_mmws17_yadati_adarsh_bci:/root/catkin_ws/src/prj-iki-robotics/ros-bci
+    privileged: true
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    command: tail -f /dev/null

@@ -1,0 +1,5 @@
+<launch>
+<!-- My Package launch file -->
+<node pkg="marvins_bci" type="emostate_logger_docker.py" name="bci_gesture_control" output="screen">
+</node>
+</launch>
